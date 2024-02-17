@@ -12,4 +12,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  theme: {
+    fontFamily: {
+      "sans-serif": ["Space Grotesk"],
+    },
+  },
 };
