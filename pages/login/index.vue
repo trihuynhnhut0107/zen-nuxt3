@@ -1,15 +1,17 @@
 <template>
   <div class="login-page">
-    <div class="container flex mx-auto px-4 py-2 items-center justify-center">
+    <div
+      class="container flex mx-auto px-10 py-2 items-center justify-center max-w-screen-xl"
+    >
       <div class="grid grid-cols-2 grid-flow-row content-between gap-20">
-        <div class="card-left">
+        <div class="card-left pt-[100px]">
           <div>
-            <h6 class="card-item pt-[100px] text-5xl font-extrathin">
+            <h2 class="title text-[32px] font-[500]">
               Chào mừng bạn trở lại với Zentlemen
-            </h6>
+            </h2>
           </div>
           <div>
-            <p class="card-item text-2xl font-light">
+            <p class="desc text-[20px] font-light">
               Tại đây hãy chia sẻ với Zen những điều thú vị nhất trong cuộc
               sống.
             </p>
@@ -45,7 +47,9 @@
             </div>
             <div class="inline-flex input-field-item gap-1 text-xl">
               <p>Quên mật khẩu?</p>
-              <button class="forgot-password">Đặt lại mật khẩu</button>
+              <NuxtLink to="/reset-password/">
+                <button class="forgot-password">Đặt lại mật khẩu</button>
+              </NuxtLink>
             </div>
           </div>
 
@@ -54,7 +58,9 @@
           </div>
           <div class="inline-flex input-field-item gap-1">
             <p>Chưa có tài khoản?</p>
-            <button class="signup">Đăng ký</button>
+            <NuxtLink to="/signup/">
+              <button class="signup">Đăng ký</button>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -77,7 +83,14 @@ export default {};
   @apply bg-[#212529] text-sm border border-gray-300 block w-full p-2.5 rounded-lg;
 }
 .card-left {
-  @apply grid grid-flow-row grid-cols-1 row-span-2 justify-items-center gap-y-5 bg-gradient-to-b from-[rgba(255,153,201,0.8)] to-[rgb(106,56,255)] items-stretch rounded-2xl;
+  @apply flex grid grid-flow-row grid-cols-1 row-span-2 justify-items-center gap-y-5 bg-gradient-to-b from-[rgba(255,153,201,0.8)] to-[rgb(106,56,255)] items-stretch rounded-2xl;
+}
+
+.title {
+  @apply pt-[20px] px-[30px];
+}
+.desc {
+  @apply px-[30px];
 }
 .card-item {
   @apply px-10;
@@ -101,7 +114,7 @@ export default {};
 .space-grotesk-font {
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 900;
   font-style: normal;
 }
 </style>
