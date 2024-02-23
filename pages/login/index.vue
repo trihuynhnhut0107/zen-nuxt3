@@ -4,11 +4,11 @@
       class="container flex mx-auto px-10 py-2 items-center justify-center max-w-screen-xl"
     >
       <div class="grid grid-cols-2 grid-flow-row content-between gap-20">
-        <div class="card-left pt-[100px]">
+        <div class="card-left bg-radial-gradient">
           <div>
-            <h2 class="title text-[32px] font-[500]">
+            <h6 class="title text-[32px] font-extrathin">
               Chào mừng bạn trở lại với Zentlemen
-            </h2>
+            </h6>
           </div>
           <div>
             <p class="desc text-[20px] font-light">
@@ -77,13 +77,13 @@ export default {};
   @apply min-h-screen flex justify-center bg-[#212529] text-white font-sans-serif;
 }
 .input-username {
-  @apply bg-[#212529] border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+  @apply bg-[#212529] border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-sans-serif;
 }
 .input-password {
-  @apply bg-[#212529] text-sm border border-gray-300 block w-full p-2.5 rounded-lg;
+  @apply bg-[#212529] text-sm border border-gray-300 block w-full p-2.5 rounded-lg font-sans-serif;
 }
 .card-left {
-  @apply flex grid grid-flow-row grid-cols-1 row-span-2 justify-items-center gap-y-5 bg-gradient-to-b from-[rgba(255,153,201,0.8)] to-[rgb(106,56,255)] items-stretch rounded-2xl;
+  @apply grid grid-flow-row grid-cols-1 row-span-2 justify-items-center gap-y-5  items-stretch rounded-2xl  pt-[100px];
 }
 
 .title {
@@ -114,7 +114,6 @@ export default {};
 .space-grotesk-font {
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 900;
   font-style: normal;
 }
 </style>

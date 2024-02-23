@@ -17,4 +17,5 @@ module.exports = {
       "sans-serif": ["Space Grotesk"],
     },
   },
+  important: true,
 };
