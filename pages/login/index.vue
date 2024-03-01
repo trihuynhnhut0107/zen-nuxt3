@@ -20,47 +20,40 @@
             <img src="\img\zen.97b5580.png" alt="test-picture" />
           </div>
         </div>
-        <div class="input-field">
+        <div class="card-right">
           <div>
-            <h1 class="text-4xl font-extrathin">Đăng nhập</h1>
-          </div>
-          <div>
-            <div class="input-field-item">
-              <label for="username">Tài khoản</label>
+            <div>
+              <h6 class="text-4xl font-medium">Đăng ký</h6>
             </div>
-            <div class="input-field-item">
-              <input
-                type="text"
-                class="input-username"
-                placeholder="Nhập tài khoản"
-              />
+            <div>
+              <InputField placeholder="Nhập tài khoản" label="Tài khoản" />
             </div>
-            <div class="input-field-item">
-              <label for="password">Mật khẩu</label>
-            </div>
-            <div class="input-field-item">
-              <input
+
+            <div>
+              <InputField
+                placeholder="Nhập mật khẩu"
                 type="password"
-                class="input-password"
-                placeholder="Mật khẩu"
+                label="Mật khẩu"
               />
             </div>
-            <div class="inline-flex input-field-item gap-1 text-xl">
+
+            <div class="my-2 inline-flex gap-1">
               <p>Quên mật khẩu?</p>
-              <NuxtLink to="/reset-password/">
-                <button class="forgot-password">Đặt lại mật khẩu</button>
+              <NuxtLink to="/reset-password">
+                <TextButton>Đặt lại mật khẩu</TextButton>
               </NuxtLink>
             </div>
-          </div>
 
-          <div class="login-btn">
-            <button class="px-4 py-2">Đăng nhập</button>
-          </div>
-          <div class="inline-flex input-field-item gap-1">
-            <p>Chưa có tài khoản?</p>
-            <NuxtLink to="/signup/">
-              <button class="signup">Đăng ký</button>
-            </NuxtLink>
+            <div>
+              <PurpleButton> Đăng nhập </PurpleButton>
+            </div>
+
+            <div class="mt-4 inline-flex gap-1">
+              <p>Chưa có tài khoản?</p>
+              <NuxtLink to="/signup">
+                <TextButton>Đăng ký</TextButton>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>

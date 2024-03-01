@@ -25,64 +25,56 @@
           </div>
         </div>
         <div class="card-right">
-          <div class="input-field">
+          <div>
             <div>
               <h6 class="text-4xl font-medium">Đăng ký</h6>
             </div>
             <div>
-              <label for="username">Tài khoản</label>
-              <br />
-              <input
-                type="text"
-                class="input-field-item"
+              <InputField
                 placeholder="Nhập tài khoản"
+                label="Tài khoản"
+                required="true"
               />
             </div>
             <div>
-              <label for="username">Tên người dùng</label>
-              <br />
-              <input
-                type="text"
-                class="input-field-item"
-                placeholder="Nhập tên người dùng"
+              <InputField
+                placeholder="Nhập tên hiển thị"
+                label="Tên hiển thị"
+                required="true"
               />
             </div>
             <div>
-              <label for="password">Mật khẩu</label>
-              <br />
-              <input
-                type="password"
-                class="input-field-item"
+              <InputField
                 placeholder="Nhập mật khẩu"
+                type="password"
+                label="Mật khẩu"
+                required="true"
               />
             </div>
             <div>
-              <label for="email">Địa chỉ email</label>
-              <br />
-              <input
-                type="email"
-                class="input-field-item"
+              <InputField
                 placeholder="Nhập địa chỉ email"
+                type="email"
+                label="Địa chỉ email"
+                required="true"
               />
             </div>
             <div>
-              <label for="phone">Số điện thoại</label>
-              <br />
-              <input
-                type="text"
-                class="input-field-item"
+              <InputField
                 placeholder="Nhập số điện thoại"
+                type="password"
+                label="Số điện thoại"
+                required="true"
               />
             </div>
             <div>
-              <button class="submit-btn">
-                <p class="my-1 font-semibold">Đăng ký</p>
-              </button>
+              <PurpleButton> Đăng ký </PurpleButton>
             </div>
+
             <div class="mt-3 inline-flex gap-1">
               <p>Bạn có tài khoản?</p>
               <NuxtLink to="/login">
-                <button class="login-btn">Đăng nhập</button>
+                <TextButton>Đăng nhập</TextButton>
               </NuxtLink>
             </div>
           </div>
@@ -101,18 +93,11 @@ export default {};
   @apply min-h-screen justify-center bg-[#212529] text-white font-sans-serif;
 }
 
-.input-field {
-  @apply grid grid-cols-1 grid-flow-row gap-2 py-5 font-thin;
-}
-.input-field-item {
-  @apply py-2 bg-[#2c2f34] border border-gray-300 rounded-lg w-full my-2 focus:bg-black px-2;
-}
-
 .card-left {
   @apply grid grid-flow-row grid-cols-1 row-span-2 justify-items-center gap-y-5  items-stretch rounded-2xl  pt-[100px];
 }
 .card-right {
-  @apply grid grid-cols-1 grid-flow-row gap-10 py-5 content-center items-center justify-center;
+  @apply grid grid-cols-1 grid-flow-row gap-10 py-7 content-center items-center justify-center;
 }
 .img-after {
   @apply w-[100%] object-fill;
