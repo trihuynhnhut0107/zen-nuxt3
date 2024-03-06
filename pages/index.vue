@@ -13,6 +13,65 @@
         </div>
       </div>
     </nav>
+    <div
+      class="flex flex-wrap justify-around items-start mx-auto p-4 space-x-5 bg-[#222933]"
+    >
+      <el-dropdown type="primary" class="dropdown-title">
+        Đời sống
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <el-dropdown type="primary" class="dropdown-title">
+        Bóng đá
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <el-dropdown type="primary" class="dropdown-title">
+        Đời sống
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <el-dropdown type="primary" class="dropdown-title">
+        Video
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <el-dropdown type="primary" class="dropdown-title">
+        Livestreaming
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+            <el-dropdown-item> Tổng hợp </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
@@ -30,5 +89,9 @@ export default {};
 
 .nav-bar-btn {
   @apply py-1 px-2 text-sm;
+}
+
+.dropdown-title {
+  @apply text-white;
 }
 </style>

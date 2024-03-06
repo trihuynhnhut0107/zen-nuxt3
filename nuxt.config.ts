@@ -8,8 +8,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@pinia/nuxt"],
-  pinia: {
-    storesDirs: ["./stores/**", "./custom-folder/stores/**"],
-  },
+  modules: ["@pinia/nuxt", "@element-plus/nuxt"],
 });
