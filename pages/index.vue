@@ -1,6 +1,7 @@
 <template>
+  <NuxtLoadingIndicator v-if="pending"></NuxtLoadingIndicator>
   <div class="home-page">
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="border-gray-200 dark:bg-gray-900">
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4"
       >
@@ -16,67 +17,62 @@
     <div
       class="flex flex-wrap justify-around items-start mx-auto p-4 space-x-5 bg-[#222933]"
     >
-      <el-dropdown type="primary" class="dropdown-title">
-        Đời sống
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-          </el-dropdown-menu>
+      <v-menu open-on-hover>
+        <template v-slot:activator="{ props }">
+          <v-btn class="bg-[#222933] text-white" v-bind="props">
+            Dropdown <v-icon>mdi-chevron-down</v-icon>
+          </v-btn>
         </template>
-      </el-dropdown>
-      <el-dropdown type="primary" class="dropdown-title">
-        Bóng đá
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <el-dropdown type="primary" class="dropdown-title">
-        Đời sống
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <el-dropdown type="primary" class="dropdown-title">
-        Video
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <el-dropdown type="primary" class="dropdown-title">
-        Livestreaming
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-            <el-dropdown-item> Tổng hợp </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+
+        <v-list>
+          <v-list-item> A </v-list-item>
+          <v-list-item> B </v-list-item>
+          <v-list-item> C </v-list-item>
+        </v-list>
+      </v-menu>
+    </div>
+
+    <div
+      class="flex flex-wrap justify-around max-w-screen-lg mx-auto p-4 space-x-5 bg-[#2c2f34]"
+    >
+      <v-carousel class="max-w-full" :continuous="true" :cycle="true">
+        <div v-for="n in news">
+          <NuxtLink :to="getNewsIDLink(n.id)">
+            <v-carousel-item
+              class="size-auto"
+              :src="getImageLink(n.feature_image)"
+              ><p class="justify-around space-x-5">
+                {{ n.title }}
+              </p></v-carousel-item
+            >
+          </NuxtLink>
+        </div>
+      </v-carousel>
     </div>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+const {
+  data: newsData,
+  error,
+  pending,
+} = await useLazyAsyncData("newsData", async () => {
+  const data = await Promise.all([
+    $fetch("https://api.zentlemen.vn/ddapp/news/list?limit=5"),
+  ]);
+  return data;
+});
+
+const news = newsData.value[0].data;
+
+const getNewsIDLink = (NewsID) => {
+  return `/news/${NewsID}.vue`;
+};
+
+const getImageLink = (imageId) => {
+  return `https://api.zentlemen.vn/ddapp/file/resize-file/${imageId}/1?token=undefined`;
+};
 </script>
 
 <style>
