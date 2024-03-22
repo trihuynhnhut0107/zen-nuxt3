@@ -19,6 +19,7 @@ export default defineNuxtConfig({
       });
     },
     "@pinia/nuxt",
+    "nuxt-auth-utils",
   ],
   build: {
     transpile: ["vuetify"],
@@ -35,4 +36,5 @@ export default defineNuxtConfig({
       BaseApiUrl: process.env.BaseURL,
     },
   },
+  ssr: false,
 });

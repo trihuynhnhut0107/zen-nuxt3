@@ -33,41 +33,48 @@
     </div>
 
     <div
-      class="flex flex-wrap justify-around max-w-screen-lg mx-auto p-4 space-x-5 bg-[#2c2f34]"
+      class="flex flex-wrap justify-around max-w-screen-lg mx-auto p-5 space-x-5 bg-[#2c2f34] object-fill"
     >
-      <v-carousel class="max-w-full" :continuous="true" :cycle="true">
-        <div v-for="n in news">
+      <v-carousel show-arrows="hover" cycle hide-delimiter-background>
+        <v-carousel-item v-for="n in news">
           <NuxtLink :to="getNewsIDLink(n.id)">
-            <v-carousel-item
-              class="size-auto"
-              :src="getImageLink(n.feature_image)"
-              ><p class="justify-around space-x-5">
-                {{ n.title }}
-              </p></v-carousel-item
+            <v-sheet
+              height="100%"
+              class="bg-transparent items-center justify-center content-center"
             >
+              <div class="relative overflow-hidden">
+                <img
+                  :src="getImageLink(n.feature_image)"
+                  alt="Avatar"
+                  class="object-cover w-full"
+                />
+                <div
+                  class="absolute w-full py-2.5 bottom-16 inset-x-0 bg-slate-600 bg-opacity-70 text-white text-xl text-center font-bold"
+                >
+                  {{ n.title }}
+                </div>
+              </div>
+            </v-sheet>
           </NuxtLink>
-        </div>
+        </v-carousel-item>
       </v-carousel>
     </div>
   </div>
 </template>
 
 <script setup>
-const {
-  data: newsData,
-  error,
-  pending,
-} = await useLazyAsyncData("newsData", async () => {
-  const data = await Promise.all([
-    $fetch("https://api.zentlemen.vn/ddapp/news/list?limit=5"),
-  ]);
-  return data;
-});
+const { data: newsData, pending } = await useFetchAPI(
+  "/ddapp/news/list?limit=5"
+);
 
-const news = newsData.value[0].data;
+console.log(newsData.value.data);
+
+const news = newsData.value.data;
+
+// const news = toRaw(newsData.value)[0].data;
 
 const getNewsIDLink = (NewsID) => {
-  return `/news/${NewsID}.vue`;
+  return `/news/${NewsID}`;
 };
 
 const getImageLink = (imageId) => {
